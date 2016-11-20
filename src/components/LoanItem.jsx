@@ -10,6 +10,7 @@ const propTypes = {
   ltv: PropTypes.number.isRequired,
   amount: PropTypes.number.isRequired,
   investment: PropTypes.object,
+  onClickInvestLoan: PropTypes.func,
 };
 
 function LoanItem(props) {
@@ -26,7 +27,12 @@ function LoanItem(props) {
           : null
         }
       </div>
-      <button className="invest-btn">Invest in Loan</button>
+      <button
+        className="invest-btn"
+        onClick={() => {props.onClickInvestLoan(props.id)}}
+      >
+        Invest in Loan
+      </button>
     </div>
   );
 }

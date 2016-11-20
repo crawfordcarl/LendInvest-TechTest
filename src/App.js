@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoanList from './components/LoanList';
+import LoanInvestForm from './components/LoanInvestForm';
 import './App.css';
 
 class App extends Component {
@@ -41,12 +42,39 @@ class App extends Component {
       ],
       investments: [],
     };
+
+    this.openInvestLoanForm = this.openInvestLoanForm.bind(this);
+    this.closeInvestLoanForm = this.closeInvestLoanForm.bind(this);
+  }
+
+  openInvestLoanForm(loanItemId) {
+    this.setState({
+      showModal: true,
+      selectedId: loanItemId,
+    });
+  }
+
+  closeInvestLoanForm() {
+    this.setState({
+      showModal: false,
+    });
   }
 
   render() {
+    const selectedItem = this.state.showModal ?
+      this.state.loans.find(item => item.id === this.state.selectedId) :
+      {};
     return (
       <div className="App">
-        <LoanList loans={this.state.loans} />
+        <LoanList
+          loans={this.state.loans}
+          onClickInvestLoan={this.openInvestLoanForm}
+        />
+        <LoanInvestForm
+          showModal={this.state.showModal}
+          loan={selectedItem}
+          closeModal={this.closeInvestLoanForm}
+        />
       </div>
     );
   }
