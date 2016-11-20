@@ -9,7 +9,8 @@ function LoanList(props) {
   const loanItems = props.loans.map(item => <LoanItem {...item} key={item.id} />)
 
   return (
-    <div>
+    <div className="loan-list">
+      <h2>Current Loans</h2>
       {loanItems}
     </div>
   );

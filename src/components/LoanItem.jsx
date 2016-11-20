@@ -9,15 +9,24 @@ const propTypes = {
   term_remaining: PropTypes.number.isRequired,
   ltv: PropTypes.number.isRequired,
   amount: PropTypes.number.isRequired,
+  investment: PropTypes.object,
 };
 
 function LoanItem(props) {
   return (
-    <div>
-      <div>{props.title}</div>
+    <div className="loan-item">
+      <div>
+        <span className="bold">{props.title}</span>
+      </div>
       <div>Loan details, amounts and values</div>
-      <div>Invested (or not)</div>
-      <button>Invest in Loan</button>
+      <div>
+        {
+          props.investment ?
+            <span>Invested</span>
+          : null
+        }
+      </div>
+      <button className="invest-btn">Invest in Loan</button>
     </div>
   );
 }

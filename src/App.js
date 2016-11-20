@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LoanList from './components/LoanList';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -39,21 +38,15 @@ class App extends Component {
           ltv: 48.80,
           amount: 85754,
         }
-      ]
+      ],
+      investments: [],
     };
   }
 
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <LoanList loans={this.state.loans}/>
+        <LoanList loans={this.state.loans} />
       </div>
     );
   }
