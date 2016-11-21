@@ -14,6 +14,7 @@ body {
 }
 
 .loan-item {
+  position: relative;
   padding: 10px;
   margin-bottom: 20px;
   background-color: #D5D5D5;
@@ -32,6 +33,13 @@ button.invest-btn {
   padding: 5px 10px;
   font-size: 15px;
   cursor: pointer;
+}
+
+.invested-tag {
+  position: absolute;
+  color: green;
+  top: 10px;
+  right:10px;
 }
 
 .modal {

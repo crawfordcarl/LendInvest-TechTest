@@ -49,7 +49,7 @@ class LoanInvestForm extends React.Component {
         open={showModal}
         closeModal={this.props.closeModal}
       >
-        <div>Invest in Loan</div>
+        <div className="bold">Invest in Loan</div>
         <div>{this.props.loan.title}</div>
         <br />
         <div>Amount available: £{loanAvailable}</div>
@@ -66,7 +66,7 @@ class LoanInvestForm extends React.Component {
             className="invest-btn"
             onClick={this.investClicked}
           >
-            Invest Now
+            { this.props.loan.amount > 0 ? 'Change Investment' : 'Invest Now' }
           </button>
         </div>
       </Modal>

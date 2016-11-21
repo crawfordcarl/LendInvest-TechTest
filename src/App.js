@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { numberWithCommas } from './Constants';
 import LoanList from './components/LoanList';
 import LoanInvestForm from './components/LoanInvestForm';
 import './App.css';
@@ -75,6 +76,10 @@ class App extends Component {
     const selectedItem = this.state.showModal ?
       this.state.loans.find(item => item.id === this.state.selectedId) :
       {};
+    const totalAvailable = this.state.loans.reduce((acc, curr) => {
+      const nextAcc = acc + curr.available;
+      return nextAcc;
+    }, 0);
     return (
       <div className="App">
         <LoanList
@@ -87,6 +92,9 @@ class App extends Component {
           closeModal={this.closeInvestLoanForm}
           invest={this.invest}
         />
+        <div>
+          Total amount available for investments: <span className="bold">£{numberWithCommas(totalAvailable)}</span>
+        </div>
       </div>
     );
   }
