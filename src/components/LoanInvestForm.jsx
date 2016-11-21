@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Modal from './Modal';
-import { numberWithCommas } from '../Constants';
+import { numberWithCommas, secondsToReadable } from '../Constants';
 
 const propTypes = {
   showModal: PropTypes.bool,
@@ -41,7 +41,9 @@ class LoanInvestForm extends React.Component {
     const showModal = this.props.showModal ? this.props.showModal : false;
     const loanAvailable = this.props.loan.available ?
       numberWithCommas(this.props.loan.available):
-      'Not Applicable';
+      'None available';
+    const termRemaining = secondsToReadable(this.props.loan.term_remaining);
+
     return (
       <Modal
         open={showModal}
@@ -51,7 +53,8 @@ class LoanInvestForm extends React.Component {
         <div>{this.props.loan.title}</div>
         <br />
         <div>Amount available: £{loanAvailable}</div>
-        <div>Loan ends in: {this.props.loan.term_remaining}</div>
+        <div>Loan ends in: {termRemaining}</div>
+        <br />
         <div>Investment amount (£)</div>
         <div>
           <input

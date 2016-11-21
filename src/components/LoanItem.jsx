@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { secondsToReadable } from '../Constants';
 
 const propTypes = {
   id: PropTypes.number.isRequired,
@@ -14,14 +15,16 @@ const propTypes = {
 };
 
 function LoanItem(props) {
+  const termRemaining = secondsToReadable(props.term_remaining);
+
   return (
     <div className="loan-item">
       <div>
         <span className="bold">{props.title}</span>
       </div>
       <div>
-        <div>Annualised Return: { props.annualised_return }</div>
-        <div>Term remaining: { props.term_remaining }</div>
+        <div>Annualised Return: %{ props.annualised_return }</div>
+        <div>Term remaining: { termRemaining }</div>
       </div>
       <div>
         {
