@@ -19,10 +19,13 @@ function LoanItem(props) {
       <div>
         <span className="bold">{props.title}</span>
       </div>
-      <div>Loan details, amounts and values</div>
+      <div>
+        <div>Annualised Return: { props.annualised_return }</div>
+        <div>Term remaining: { props.term_remaining }</div>
+      </div>
       <div>
         {
-          props.investment ?
+          props.amount > 0 ?
             <span>Invested</span>
           : null
         }

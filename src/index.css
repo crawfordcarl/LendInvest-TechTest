@@ -29,6 +29,9 @@ button.invest-btn {
   background-color: #4D4D4D;
   border: none;
   float: right;
+  padding: 5px 10px;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .modal {
@@ -42,6 +45,7 @@ button.invest-btn {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    text-align: left;
 }
 
 .modal.open {
@@ -59,4 +63,5 @@ button.invest-btn {
 .modal-close {
   float: right;
   font-weight: bold;
+  cursor: pointer;
 }

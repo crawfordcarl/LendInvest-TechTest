@@ -45,6 +45,7 @@ class App extends Component {
 
     this.openInvestLoanForm = this.openInvestLoanForm.bind(this);
     this.closeInvestLoanForm = this.closeInvestLoanForm.bind(this);
+    this.invest = this.invest.bind(this);
   }
 
   openInvestLoanForm(loanItemId) {
@@ -58,6 +59,16 @@ class App extends Component {
     this.setState({
       showModal: false,
     });
+  }
+
+  invest(loanId, amount) {
+    let loans = this.state.loans.slice();
+    let loanIndex = loans.findIndex(item => item.id === loanId);
+
+    let total =  loans[loanIndex].amount + loans[loanIndex].available;
+    loans[loanIndex].amount = amount;
+    loans[loanIndex].available = total - amount;
+    this.setState({ loans });
   }
 
   render() {
@@ -74,6 +85,7 @@ class App extends Component {
           showModal={this.state.showModal}
           loan={selectedItem}
           closeModal={this.closeInvestLoanForm}
+          invest={this.invest}
         />
       </div>
     );
