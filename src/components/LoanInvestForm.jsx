@@ -54,9 +54,11 @@ class LoanInvestForm extends React.Component {
         <br />
         <div>Amount available: £{loanAvailable}</div>
         <div>Loan ends in: {termRemaining}</div>
+        <div>Tranche: {this.props.loan.tranche}</div>
+        <div>ltv: {this.props.loan.ltv}</div>
         <br />
         <div>Investment amount (£)</div>
-        <div>
+        <div className="invest-form">
           <input
             type="number"
             value={this.state.investInputValue}
